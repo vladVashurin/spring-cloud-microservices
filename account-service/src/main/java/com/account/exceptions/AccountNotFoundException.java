@@ -1,2 +1,7 @@
-package com.account.exceptions;public class AccountNotFoundException {
+package com.account.exceptions;
+
+public class AccountNotFoundException extends RuntimeException{
+    public AccountNotFoundException(String message) {
+        super(message);
+    }
 }

@@ -1,12 +1,17 @@
-package com.account;
+package com.account.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
+
+import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,4 +24,15 @@ public class Account {
     private String phone;
 
     private OffsetDateTime creationDate;
+
+    @ElementCollection
+    private List<Long> bills;
+
+    public Account(String name, String email, String phone, OffsetDateTime creationDate, List<Long> bills) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.creationDate = creationDate;
+        this.bills = bills;
+    }
 }
