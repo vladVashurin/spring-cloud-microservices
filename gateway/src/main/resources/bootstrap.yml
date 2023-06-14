@@ -7,3 +7,5 @@ spring:
       fail-fast: false
       password: admin
       username: user
+server:
+  port: 8099
